@@ -8,8 +8,9 @@
 </head>
 <body>
     <div id="app">
+        {{ timer.remainingTime }} {{ timer.statusMessage }}
         <div id="buttons">
-            <button id="start-activity" class="button">Atividade</button>
+        <button id="start-activity" class="button" v-on:click="{{ timer.startActivity() }}">Atividade</button>
             <button id="start-breaktime" class="button">Descanso</button>
             <button id="start-long-breaktime" class="button">Descanso longo</button>
         </div>
@@ -21,6 +22,7 @@
             <button id="reset">Zerar</button>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="main.js"></script>
 </body>
 </html>
