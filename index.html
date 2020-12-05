@@ -8,18 +8,18 @@
 </head>
 <body>
     <div id="app">
-        {{ timer.remainingTime }} {{ timer.statusMessage }}
+         
         <div id="buttons">
-        <button id="start-activity" class="button" v-on:click="{{ timer.startActivity() }}">Atividade</button>
-            <button id="start-breaktime" class="button">Descanso</button>
-            <button id="start-long-breaktime" class="button">Descanso longo</button>
+            <button id="start-activity" class="button" v-on:click="{{ startActivity() }}">Atividade</button>
+            <button id="start-short-breaktime" class="button" v-on:click="{{ startShortBreak() }}">Descanso</button>
+            <button id="start-long-breaktime" class="button" v-on:click="{{ startLongBreak() }}">Descanso longo</button>
         </div>
         <div id="timer-container">
-            <p id="timer-status">Atividade/descanso em xx:xx. OU Atividade/descanso começou!</p>
-            <div id="timer">xx:xx</div>
+            <p id="timer-status">{{ statusMessage }}</p>
+            <div id="timer">{{ remainingTime | SeccondsToTimer }}</div>
         </div>
-        <div id="reset-container">
-            <button id="reset">Zerar</button>
+        <div id="timer-control-container">
+            <button id="stop" v-on:click="stopTimer()">Parar</button>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
