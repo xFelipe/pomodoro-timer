@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
     <title>Pomodoro | 2020</title>
 </head>
 <body>
     <div id="app">
-         
         <div id="buttons">
             <button id="start-activity" class="button" v-on:click="{{ startActivity() }}">Atividade</button>
             <button id="start-short-breaktime" class="button" v-on:click="{{ startShortBreak() }}">Descanso</button>
@@ -19,7 +18,8 @@
             <div id="timer">{{ remainingTime | seccondsToTimer }}</div>
         </div>
         <div id="timer-control-container">
-            <button id="stop" v-on:click="stopTimer()">Parar</button>
+            <button v-if="!activeInterval" id="start" v-on:click="resumeTimer()">Iniciar</button>
+            <button v-else id="stop" v-on:click="stopTimer()">Parar</button>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
