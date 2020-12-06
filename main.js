@@ -9,14 +9,14 @@ var app = new Vue({
     data: {
         statusMessage: "",
         remainingTime: 0,
-        timerActiveInterval: undefined
+        activeInterval: false
     },
     methods: {
         startTimer: function (seccondsToAlarm, waitMessage, finishMessage) {
-            if (this.timerActiveInterval != undefined) this.stopTimer(); 
+            if (this.activeInterval != undefined) this.stopTimer();
             this.statusMessage = waitMessage;
             this.remainingTime = seccondsToAlarm;
-            this.timerActiveInterval = setInterval(() => {
+            this.activeInterval = setInterval(() => {
                 this.remainingTime -= 1;
                 if (this.remainingTime <= 0) {
                     this.stopTimer();
@@ -25,7 +25,8 @@ var app = new Vue({
             }, 1000);
         },
         stopTimer: function () {
-            clearTimeout(this.timerActiveInterval);
+            clearTimeout(this.activeInterval);
+            this.activeInterval = false;
         },
         startActivity: function () {
             this.startTimer(25 * MINUTE, "Atividade iniciada", "Atividade chegou ao fim.");
@@ -41,13 +42,12 @@ var app = new Vue({
         }
     },
     filters: {
-        SeccondsToTimer: function(secconds) {
+        seccondsToTimer: function(secconds) {
             let mins = Math.floor(secconds / MINUTE).toString();
             let secs = Math.floor(secconds % MINUTE).toString();
             if (mins.length == 1) mins = '0'+mins;
             if (secs.length == 1) secs = '0'+secs;
             return mins + ':' + secs;
-            // CONTINUAR IMPLEMENTANDO FILTER
         }
     }
 });

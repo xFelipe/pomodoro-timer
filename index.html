@@ -16,7 +16,7 @@
         </div>
         <div id="timer-container">
             <p id="timer-status">{{ statusMessage }}</p>
-            <div id="timer">{{ remainingTime | SeccondsToTimer }}</div>
+            <div id="timer">{{ remainingTime | seccondsToTimer }}</div>
         </div>
         <div id="timer-control-container">
             <button id="stop" v-on:click="stopTimer()">Parar</button>
