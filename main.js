@@ -34,7 +34,7 @@ var app = new Vue({
 
     methods: {
         startTimer: function (timerMode) {
-            if (this.activeInterval != undefined) this.stopTimer();
+            if (this.activeInterval) this.stopTimer();
             this.currentTimerOption = timerMode;
             this.remainingTime = timerMode.time;
             this.resumeTimer();
