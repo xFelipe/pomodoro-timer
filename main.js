@@ -45,6 +45,7 @@ var app = new Vue({
             this.updateMessage();
         },
         resumeTimer: function() {
+            if (this.remainingTime <= 0 ) return;
             this.activeInterval = setInterval(() => {
                 this.remainingTime -= 1;
                 if (this.remainingTime <= 0) {
