@@ -1,8 +1,3 @@
-// Criar arquivo novo pro timer
-// https://github.com/Marco-Andre90/projeto-quiz
-// Procurar algo do Vue ou lib js pra fazer mecanica de passagem de tempo
-// contador/timer em pausa
-
 const MINUTE = 60
 //  Timer options
 const ACTIVITY = {
@@ -23,6 +18,7 @@ const LONG_BREAK = {
     finishMessage: "Descanso longo chegou ao fim",
     name: "Descanso longo"
 }
+
 
 var app = new Vue({
     el: '#app',
@@ -46,10 +42,13 @@ var app = new Vue({
             this.updateMessage();
         },
         resumeTimer: function() {
+            if (this.remainingTime <= 0 ) return;
             this.activeInterval = setInterval(() => {
                 this.remainingTime -= 1;
                 if (this.remainingTime <= 0) {
                     this.stopTimer();
+                    audio = new Audio("alarm_sound.mp3")
+                    audio.play();
                 }
             }, 1000);
             this.updateMessage();
