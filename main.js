@@ -4,6 +4,7 @@
 // contador/timer em pausa
 
 const MINUTE = 60
+//  Timer options
 const ACTIVITY = {
     time: 25 * MINUTE,
     waitMessage: "Atividade iniciada",
@@ -34,7 +35,7 @@ var app = new Vue({
 
     methods: {
         startTimer: function (timerMode) {
-            if (this.activeInterval != undefined) this.stopTimer();
+            if (this.activeInterval) this.stopTimer();
             this.currentTimerOption = timerMode;
             this.remainingTime = timerMode.time;
             this.resumeTimer();

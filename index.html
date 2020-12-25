@@ -4,22 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sniglet&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet"> 
     <title>Pomodoro | 2020</title>
 </head>
 <body>
-    <div id="app">
-        <div id="buttons">
-            <button id="start-activity" class="button" v-on:click="{{ startActivity() }}">Atividade</button>
-            <button id="start-short-breaktime" class="button" v-on:click="{{ startShortBreak() }}">Descanso</button>
-            <button id="start-long-breaktime" class="button" v-on:click="{{ startLongBreak() }}">Descanso longo</button>
-        </div>
-        <div id="timer-container">
-            <p id="timer-status">{{ statusMessage }}</p>
-            <div id="timer">{{ remainingTime | seccondsToTimer }}</div>
-        </div>
-        <div id="timer-control-container">
-            <button v-if="!activeInterval" id="start" v-on:click="resumeTimer()">Iniciar</button>
-            <button v-else id="stop" v-on:click="stopTimer()">Parar</button>
+    <head>
+        <h1 class="head-title">Pomodoro</h1>
+        <!-- <hr class="line1"></hr> -->
+        <img src="/tomate.svg" alt="Tomate" class="tomate" /> <!-- alterar o nome da class -->
+        <hr class="line2"></hr>
+    </head>
+    <div id="app" class="app-container">
+        <div class="timer-buttons-container">
+            <div id="timer-options" class="timer-options-container">
+                    <button id="start-activity" class="start-activity-button" v-on:click="{{ startActivity() }}">Atividade</button>
+                    <button id="start-short-breaktime" class="start-short-breaktime-button" v-on:click="{{ startShortBreak() }}">Descanso</button>
+                    <button id="start-long-breaktime" class="start-long-breaktime-button" v-on:click="{{ startLongBreak() }}">Descanso longo</button>
+            </div>
+            <div id="timer-container" class="timer-style">
+                <p id="timer-status">{{ statusMessage }}</p>
+                <div id="timer">{{ remainingTime | seccondsToTimer }}</div>
+            </div>
+            <div id="timer-control-container" class="timer-control-style">
+                <button v-if="!activeInterval" id="start" class="button-control" v-on:click="resumeTimer()">Iniciar</button>
+                <button v-else id="stop" class="button-control" v-on:click="stopTimer()">Parar</button>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
