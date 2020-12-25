@@ -50,7 +50,6 @@ body {
     padding: 8rem 4rem 1rem 4rem;
     background: rgba(255, 255, 255, 0.13);
     border: 2px solid rgba(233, 233, 233, 0.534);
-    /* box-shadow: 1px 1px 1px 6px #0f010121; */
     border-radius: 1rem;
 }
 
@@ -65,7 +64,7 @@ body {
     justify-content: space-around;
 }
 
-#start-activity {
+.timer-option {
     width: 7.6rem;
     height: 2rem;
     padding: 0rem;
@@ -75,11 +74,10 @@ body {
     font-size: .9rem;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
-    /* text-shadow: 1px 1px 1px #77694a; */
 
 
     color: #fff;
-    background: #278350;
+    background: rgba(255, 255, 255, 0);
     
     border-style: none;
     border-radius: .3rem;
@@ -87,17 +85,17 @@ body {
     
 }
 
-#start-activity:active {
+.timer-option:active {
     transition: .1s;
     transform: scale(0.9)
 }
 
-#start-activity:focus {
+.timer-option:focus {
     box-shadow: 0 0 0 0;
     outline: 0;
 }
 
-
+/* 
 #start-short-breaktime {
     width: 7.6rem;
     height: 2rem;
@@ -108,7 +106,6 @@ body {
     font-size: .9rem;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
-    /* text-shadow: 1px 1px 1px #77694a; */
 
 
     color: #fff;
@@ -139,7 +136,6 @@ body {
     font-size: .9rem;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
-    /* text-shadow: 1px 1px 1px #77694a; */
 
 
     color: #fff;
@@ -158,6 +154,10 @@ body {
 #start-long-breaktime:focus {
     box-shadow: 0 0 0 0;
     outline: 0;
+} */
+
+.selected-timer-option {
+    background: #278350 !important;
 }
 
 #timer-container {

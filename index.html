@@ -18,9 +18,9 @@
     <div id="app" class="app-container">
         <div class="timer-buttons-container">
             <div id="timer-options" class="timer-options-container">
-                    <button id="start-activity" class="start-activity-button" v-on:click="{{ startActivity() }}">Atividade</button>
-                    <button id="start-short-breaktime" class="start-short-breaktime-button" v-on:click="{{ startShortBreak() }}">Descanso</button>
-                    <button id="start-long-breaktime" class="start-long-breaktime-button" v-on:click="{{ startLongBreak() }}">Descanso longo</button>
+                    <button id="start-activity" class="timer-option" v-bind:class="{ 'selected-timer-option': currentTimerOption == ACTIVITY }" v-on:click="{{ startActivity() }}">Atividade</button>
+                    <button id="start-short-breaktime" class="timer-option" v-bind:class="{ 'selected-timer-option': currentTimerOption == SHORT_BREAK }" v-on:click="{{ startShortBreak() }}">Descanso</button>
+                    <button id="start-long-breaktime" class="timer-option" v-bind:class="{ 'selected-timer-option': currentTimerOption == LONG_BREAK }" v-on:click="{{ startLongBreak() }}">Descanso longo</button>
             </div>
             <div id="timer-container" class="timer-style">
                 <p id="timer-status">{{ statusMessage }}</p>
