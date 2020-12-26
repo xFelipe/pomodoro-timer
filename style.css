@@ -137,6 +137,7 @@ body, #app {
     font-size: 8rem;
     margin-top: 1.6rem;
     padding-top: 1rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 #timer-control-container {
