@@ -1,3 +1,6 @@
+//import { Vue } from './vue.js';
+
+
 const MINUTE = 60
 //  Timer options
 const ACTIVITY = {
@@ -47,7 +50,7 @@ var app = new Vue({
                 this.remainingTime -= 1;
                 if (this.remainingTime <= 0) {
                     this.stopTimer();
-                    audio = new Audio("alarm_sound.mp3")
+                    audio = new Audio("static/alarm_sound.mp3")
                     audio.play();
                 }
             }, 1000);
