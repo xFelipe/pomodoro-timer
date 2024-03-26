@@ -7,19 +7,20 @@ const ACTIVITY = {
     time: 25 * MINUTE,
     waitMessage: "Atividade iniciada",
     finishMessage: "Atividade chegou ao fim",
-    name: "Atividade"
+    name: "Atividade",
 }
+
 const SHORT_BREAK = {
     time: 5 * MINUTE,
     waitMessage: "Descanso iniciado",
     finishMessage: "Vai trabalhaaar vagabundo",
-    name: "Descanso"
+    name: "Descanso",
 }
 const LONG_BREAK = {
     time: 30 * MINUTE,
     waitMessage: "Descanso longo iniciado",
     finishMessage: "Descanso longo chegou ao fim",
-    name: "Descanso longo"
+    name: "Descanso longo",
 }
 
 
@@ -29,7 +30,13 @@ var app = new Vue({
         statusMessage: "",
         currentTimerOption: ACTIVITY,
         remainingTime: ACTIVITY.time,
-        activeInterval: false
+        activeInterval: false,
+
+        modes: {
+            ACTIVITY: ACTIVITY,
+            SHORT_BREAK: SHORT_BREAK,
+            LONG_BREAK: LONG_BREAK
+        }
     },
 
     methods: {
@@ -83,6 +90,12 @@ var app = new Vue({
             if (mins.length == 1) mins = '0'+mins;
             if (secs.length == 1) secs = '0'+secs;
             return mins + ':' + secs;
+        }
+    },
+
+    computed: {
+        timerBackground: function() {
+            return this.currentTimerOption.background;
         }
     }
 });

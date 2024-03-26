@@ -11,9 +11,9 @@
 </head>
 <body>
 <div id="app">
-    <div class="background" v-bind:class="{ 'activity-background': currentTimerOption==ACTIVITY,
-                                            'short-break-background': currentTimerOption==SHORT_BREAK,
-                                            'long-break-background': currentTimerOption==LONG_BREAK }">
+        <div class="background" v-bind:class="{ 'activity-background': currentTimerOption==modes.ACTIVITY,
+                                                'short-break-background': currentTimerOption==modes.SHORT_BREAK,
+                                                'long-break-background': currentTimerOption==modes.LONG_BREAK }">
         <head>
             <h1 class="head-title">Pomodoro</h1>
             <!-- <hr class="line1"></hr> -->
